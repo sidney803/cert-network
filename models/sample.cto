@@ -1,0 +1,35 @@
+// https://composer-playground.mybluemix.net/editor
+
+/**
+ * Sample business network definition.
+ */
+namespace org.pccu.certnetwork
+asset Cert identified by certId {
+  o String certId
+  o String certTitle
+  o String certStatus
+  o String issueDate
+  o String certExpiredDate
+  o String info
+  o String thumbnail
+  --> Receiver receiver
+  --> Issuer issuer
+}
+transaction CertTransaction {
+  --> Cert cert
+  --> Receiver receiver
+}
+enum CertStatus {
+  o EXPIRED
+  o REVOKED
+  o EFFECTIVE
+}
+participant Issuer identified by issuerId { 
+  o String issuerId
+  o String issuerName
+}
+participant Receiver identified by receiverId {  
+  o String receiverId
+  o String firstName
+  o String lastName
+}
