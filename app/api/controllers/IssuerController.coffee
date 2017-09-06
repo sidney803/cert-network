@@ -1,6 +1,7 @@
- # ReceiverController
+# IssuerController
 lib = require('./library')
 promise = require('request-promise')
+
 
 module.exports =
   new: (req, res) ->
@@ -14,12 +15,11 @@ module.exports =
   create: (req, res) ->
     params = req.body
     data =
-      "$class": "org.pccu.certnetwork.Receiver",
-      "receiverId": params.identify
-      "firstName": params.firstname
-      "lastName": params.lastname
-    url = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
+      "$class": "org.pccu.certnetwork.Issuer",
+      "issuerId": params.identify
+      "issuerName": params.name
     lib.log data
+    url = url = 'http://localhost:3000/api/org.pccu.certnetwork.Issuer'
     options =
       method: "POST"
       uri: url
@@ -29,22 +29,23 @@ module.exports =
 
     promise(options).then((repos) ->
       lib.log repos
-      res.redirect("/receivers")
+      res.redirect('/issuers')
       ).catch (err) ->
         message = JSON.parse(err.message.replace('500 -', ''))
         lib.log message
         req.session.message = message
-        res.redirect("/receivers/new")
+        res.redirect("/issuers/new")
 
   index: (req, res) ->
-    url = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
+    url = url = 'http://localhost:3000/api/org.pccu.certnetwork.Issuer'
     options =
       uri: url
       headers: 'User-Agent': 'Request-Promise'
       json: true
     promise(options).then((result) ->
+      lib.log result, 'result'
       collection = result
-      res.view('receiver/index.ejs', {collection: collection})
-    ).catch (err) ->
-      lib.log err
+      res.view('issuer/index.ejs', {collection: collection})
+      ).catch (err) ->
+        lib.log err
 

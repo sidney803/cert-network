@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title New Sails App
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
+    %link{:href => "/styles/importer.css", :rel => "stylesheet"}/
+    %link{:href => "/dependencies/foundation/css/foundation.css", :rel => "stylesheet"}/
+    %link{:href => "/dependencies/foundation/css/app.css", :rel => "stylesheet"}/
+    %link{:href => "/styles/application.css", :rel => "stylesheet"}/
+  %body
+    .grid-container
+      .top-bar-left
+        .top-bar-title
+          %span{"data-hide-for" => "medium", "data-responsive-toggle" => "responsive-menu"}
+            %button.menu-icon{"data-toggle" => "", :type => "button"}
+          %h1 證書區塊鏈
+        #responsive-menu
+          .top-bar-left
+            %ul.dropdown.vertical.medium-horizontal.menu{"data-animate-height" => "true", "data-auto-height" => "true", "data-responsive-menu" => "drilldown medium-dropdown"}
+              %li
+                %a{:href => "#"} 學生
+                %ul.menu
+                  %li
+                    %a{:href => "/receivers/new"} 建立學生資料
+                  %li
+                    %a{:href => "/receivers"} 所有學生資料
+              %li
+                %a{:href => "#"} 證書
+              %li
+                %a{:href => "#"} 學校
+      - body
+    %script{:src => "/dependencies/sails.io.js"}
+    %script{:src => "/dependencies/foundation/js/vendor/jquery.js"}
+    %script{:src => "/dependencies/foundation/js/vendor/what-input.js"}
+    %script{:src => "/dependencies/foundation/js/vendor/foundation.js"}
+    %script{:src => "/dependencies/foundation/js/app.js"}
+    %script{:src => "/js/application.js"}

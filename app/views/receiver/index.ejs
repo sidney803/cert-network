@@ -1,4 +1,15 @@
-<h1>所有學生資料</h1>
-<% _.each(collection, function (item) { %>
-  <li><%= item.receiverId %></li>
-<% }) %>
+<h1><a href='./receivers'>所有學生資料</a></h1>
+<table class='striped'>
+  <thead>
+    <tr><th>receiverId</th><th>firstName</th><th>lastName</th></tr>
+  </thead>
+  <tbody>
+    <% _.each(collection, function (item) { %>
+    <tr>
+      <td><%= item.receiverId %></td>
+      <td><%= item.firstName %></td>
+      <td><%= item.lastName %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
