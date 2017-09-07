@@ -1,0 +1,48 @@
+<h1><a href='/certs'>所有證書資料</a></h1>
+<table class='striped'>
+  <thead>
+    <tr>
+      <th>Destroy</th>
+      <th>certId</th>
+      <th>certTitle</th>
+      <th>certStatus</th>
+      <th>issueDate</th>
+      <th>certExpiredDate</th>
+      <th>info</th>
+      <th>thumbnail</th>
+      <th>receiver</th>
+      <th>issuer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each(collection, function(item) { %>
+    <tr>
+      <th><a href='/certs/<%=item.certId%>' class='destroy'>刪除</a></th>
+      <td><%= item.certId %></td>
+      <td><%= item.certTitle %></td>
+      <td><%= item.certStatus %></td>
+      <td><%= item.issueDate %></td>
+      <td><%= item.certExpiredDate %></td>
+      <td><%= item.info %></td>
+      <td><%= item.thumbnail %></td>
+      <td><%= item.receiver %></td>
+      <td><%= item.issuer %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+<script>
+$('.destroy').click(function() {
+  var url = $(this).attr('href')
+  $.ajax({
+    url: url,
+    method: 'DELETE',
+    success: function(data) {
+      window.location.reload()
+    },
+    failuer: function() {
+      console.log(data)
+    }
+  })
+  return false
+}) </script>

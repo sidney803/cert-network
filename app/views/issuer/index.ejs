@@ -1,14 +1,33 @@
 <h1><a href='/issuers'>所有學校資料</a></h1>
 <table class='striped'>
   <thead>
-    <tr><th>issuerId</th><th>issuerName</th></tr>
+    <tr>
+      <th>Destroy</th>
+      <th>issuerId</th><th>issuerName</th></tr>
   </thead>
   <tbody>
     <% _.each(collection, function (item) { %>
     <tr>
+      <th><a href='/issuers/<%=item.issuerId%>' class='destroy'>刪除</a></th>
       <td><%= item.issuerId %></td>
       <td><%= item.issuerName %></td>
     </tr>
     <% }) %>
   </tbody>
 </table>
+
+<script>
+$('.destroy').click(function() {
+  var url = $(this).attr('href')
+  $.ajax({
+    url: url,
+    method: 'DELETE',
+    success: function(data) {
+      window.location.reload()
+    },
+    failuer: function() {
+      console.log(data)
+    }
+  })
+  return false
+}) </script>

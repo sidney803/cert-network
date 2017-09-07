@@ -1,11 +1,14 @@
 <h1><a href='./receivers'>所有學生資料</a></h1>
 <table class='striped'>
   <thead>
-    <tr><th>receiverId</th><th>firstName</th><th>lastName</th></tr>
+    <tr>
+    <th>Destroy</th>
+    <th>receiverId</th><th>firstName</th><th>lastName</th></tr>
   </thead>
   <tbody>
     <% _.each(collection, function (item) { %>
     <tr>
+      <th><a href='/receivers/<%=item.receiverId%>' class='destroy'>刪除</a></th>
       <td><%= item.receiverId %></td>
       <td><%= item.firstName %></td>
       <td><%= item.lastName %></td>
@@ -13,3 +16,20 @@
     <% }) %>
   </tbody>
 </table>
+
+
+<script>
+$('.destroy').click(function() {
+  var url = $(this).attr('href')
+  $.ajax({
+    url: url,
+    method: 'DELETE',
+    success: function(data) {
+      window.location.reload()
+    },
+    failuer: function() {
+      console.log(data)
+    }
+  })
+  return false
+}) </script>
