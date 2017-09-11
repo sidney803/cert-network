@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="/dependencies/foundation/css/foundation.css">
     <link rel="stylesheet" href="/dependencies/foundation/css/app.css">
+    <link rel='stylesheet' href="/dependencies/chosen/chosen.css">
+    <!-- <link rel='stylesheet' href="/dependencies/colorbox/colorbox.css"> -->
+    <link rel='stylesheet' href="/dependencies/fancybox/source/jquery.fancybox.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <script src="/dependencies/foundation/js/vendor/jquery.js"></script>
   </head>
@@ -38,7 +41,7 @@
                 <a href="#">證書</a>
                 <ul class="menu">
                   <li><a href="/certs/new">新增</a></li>
-                  <li><a href="/certs">列出所有</a></li>
+                  <li><a href="/certss">列出所有</a></li>
                 </ul>
               </li>
             </ul>
@@ -50,9 +53,23 @@
     </div>
     <script src="/dependencies/sails.io.js"></script>
     <script src="/dependencies/foundation/js/vendor/jquery.js"></script>
+    <script src="/dependencies/chosen/chosen.jquery.js"></script>
+    <!-- // <script src="/dependencies/colorbox/jquery.colorbox-min.js"></script> -->
+    <script src="/dependencies/fancybox/source/jquery.fancybox.js"></script>
     <script src="/dependencies/foundation/js/vendor/what-input.js"></script>
     <script src="/dependencies/foundation/js/vendor/foundation.js"></script>
     <script src="/dependencies/foundation/js/app.js"></script>
     <script src="/js/application.js"></script>
+    <script>
+      $(document).ready(function(){
+        $.wait( function() {
+          $('.colorbox').fancybox();
+        }, 1)
+      })
+
+      $.wait = function( callback, seconds){
+         return window.setTimeout( callback, seconds * 1000 );
+      }
+      </script>
   </body>
 </html>

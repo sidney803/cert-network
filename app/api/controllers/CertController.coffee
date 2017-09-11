@@ -13,7 +13,14 @@ module.exports =
       message = req.session.message.error.message
     lib.log message
     req.session.message = {}
-    res.view({message: message})
+
+    options = _.clone _options
+    options.uri = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
+    promise(options).then((result) ->
+      res.view({message: message, receivers: result})
+    ).catch (err) ->
+      lib.log err
+
 
   create: (req, res) ->
     options = _.clone _options
