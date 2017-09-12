@@ -16,8 +16,13 @@ module.exports =
 
     options = _.clone _options
     options.uri = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
-    promise(options).then((result) ->
-      res.view({message: message, receivers: result})
+    promise(options).then((receivers) ->
+      options = _.clone _options
+      options.uri = 'http://localhost:3000/api/org.pccu.certnetwork.Issuer'
+      promise(options).then((issuers) ->
+        res.view({message: message, receivers: receivers, issuers: issuers})
+      ).catch (err) ->
+        lig.log err
     ).catch (err) ->
       lib.log err
 
