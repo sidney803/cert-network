@@ -13,22 +13,11 @@ module.exports =
       message = req.session.message.error.message
     lib.log message
     req.session.message = {}
-
-    options = _.clone _options
-    options.uri = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
-    promise(options).then((receivers) ->
-      options = _.clone _options
-      options.uri = 'http://localhost:3000/api/org.pccu.certnetwork.Issuer'
-      promise(options).then((issuers) ->
+    lib.getReceivers (receivers) ->
+      lib.getIssuers (issuers) ->
         res.view({message: message, receivers: receivers, issuers: issuers})
-      ).catch (err) ->
-        lig.log err
-    ).catch (err) ->
-      lib.log err
-
 
   create: (req, res) ->
-    options = _.clone _options
     params = req.body
     data =
       "$class": "org.pccu.certnetwork.Cert",
@@ -43,12 +32,10 @@ module.exports =
       "issuer": params.issuer
     lib.log data, 'data'
 
+    options = _.clone _options
     options.uri = url
     options.method = "POST"
     options.body = data
-
-    lib.log options, 'options'
-
     promise(options).then((result) ->
       lib.log result, 'result'
       res.redirect('/certs')
@@ -66,7 +53,9 @@ module.exports =
     promise(options).then((result) ->
       lib.log result, 'result'
       collection = result
-      res.view('cert/index.ejs', {collection: collection})
+      lib.getReceivers (receivers) ->
+        lib.getIssuers (issuers) ->
+          res.view('cert/index.ejs', {collection: collection, issuers: issuers, receivers: receivers})
     ).catch (err) ->
       lib.log err
 
@@ -85,5 +74,8 @@ module.exports =
       lib.log err, 'err'
       res.status 500
       res.send("error")
+
+
+
 
 
