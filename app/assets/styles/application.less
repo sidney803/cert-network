@@ -1,15 +1,25 @@
+form .floated-label-wrapper {
+  margin-bottom: 1em;
+}
+
 img.colorbox {
   display: block!important;
 }
 
-input[type=text]{
+input[type=text], input[type=file], select{
   width: 75%;
   display: inline;
   clear: right;
+  margin: 0;
+}
+
+input[type=file] {
+  width: 105px;
 }
 
 label {
   display: inline-block;
+  margin-right: 0.5em;
   width: 20%;
   text-align: right;
 }
@@ -56,6 +66,14 @@ table {
 }
 
 
-table tr .thumb {
-  max-width: 50px;
+table tr, form {
+  & img {
+    max-width: 50px;
+  }
+}
+
+form #preview {
+  max-height: 50px;
+  display: inline-block!important;
+  border: 1px solid #ddd;
 }

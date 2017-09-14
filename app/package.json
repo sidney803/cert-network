@@ -7,6 +7,7 @@
   "dependencies": {
     "async": "2.0.1",
     "coffee-script": "^1.12.7",
+    "connect-busboy": "0.0.2",
     "grunt": "1.0.1",
     "hamljs": "^0.6.2",
     "install": "^0.10.1",
@@ -24,6 +25,7 @@
     "sails-hook-sockets": "^1.4.0",
     "sails-promise": "0.0.4",
     "sails.io.js": "^1.1.12",
+    "skipper": "^0.8.2",
     "socket.io-as-promised": "^1.0.0",
     "socket.io-client": "^2.0.3"
   },

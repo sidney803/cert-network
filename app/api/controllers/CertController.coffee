@@ -23,7 +23,7 @@ module.exports =
       "$class": "org.pccu.certnetwork.Cert",
       "certId": lib.guid()
       "certTitle": params.certTitle
-      "certStatus": params.certStatus
+      "certStatus": "EFFECTIVE" #params.certStatus
       "issueDate": params.issueDate
       "certExpiredDate": params.certExpiredDate
       "info": params.info
@@ -41,7 +41,7 @@ module.exports =
       res.redirect('/certs')
     ).catch (err) ->
       lib.log err, 'err'
-      message = JSON.parse(err.message.replace('500 -', ''))
+      message = JSON.parse(err.message.replace(/\d\d\d\s-/g, ''))
       lib.log message
       req.session.message = message
       res.redirect("/certs/new")

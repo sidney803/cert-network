@@ -1,0 +1,63 @@
+doctype html
+html
+  head
+    title New Sails App
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(rel='stylesheet', href='/dependencies/foundation/css/foundation.css')
+    link(rel='stylesheet', href='/dependencies/foundation/css/app.css')
+    link(rel='stylesheet', href='/dependencies/chosen/chosen.css')
+    // <link rel='stylesheet' href="/dependencies/colorbox/colorbox.css">
+    link(rel='stylesheet', href='/dependencies/fancybox/source/jquery.fancybox.css')
+    link(rel='stylesheet', href='/styles/importer.css')
+    script(src='/dependencies/foundation/js/vendor/jquery.js')
+  body
+    .grid-container
+      .top-bar-left
+        .top-bar-title
+          span(data-responsive-toggle='responsive-menu', data-hide-for='medium')
+            button.menu-icon(type='button', data-toggle='')
+          #logo
+            a(href='/') 證書區塊鏈
+        #responsive-menu
+          .top-bar-left
+            ul.dropdown.vertical.medium-horizontal.menu(data-responsive-menu='drilldown medium-dropdown', data-auto-height='true', data-animate-height='true')
+              li
+                a(href='#') 學生
+                ul.menu
+                  li
+                    a(href='/receivers/new') 新增
+                  li
+                    a(href='/receivers') 列出所有
+              li
+                a(href='#') 學校
+                ul.menu
+                  li
+                    a(href='/issuers/new') 新增
+                  li
+                    a(href='/issuers') 列出所有
+              li
+                a(href='#') 證書
+                ul.menu
+                  li
+                    a(href='/certs/new') 新增
+                  li
+                    a(href='/certs') 列出所有
+    script(src='/dependencies/sails.io.js')
+    script(src='/dependencies/foundation/js/vendor/jquery.js')
+    script(src='/dependencies/chosen/chosen.jquery.js')
+    script(src='/dependencies/underscore/underscore.min.js')
+    // // <script src="/dependencies/colorbox/jquery.colorbox-min.js"></script>
+    script(src='/dependencies/fancybox/source/jquery.fancybox.js')
+    script(src='/dependencies/foundation/js/vendor/what-input.js')
+    script(src='/dependencies/foundation/js/vendor/foundation.js')
+    script(src='/dependencies/foundation/js/app.js')
+    script(src='/js/application.js')
+    script.
+      $(document).ready(function(){
+      $.wait( function() {
+      $('.colorbox').fancybox();
+      }, 1)
+      })
+      $.wait = function( callback, seconds){
+      return window.setTimeout( callback, seconds * 1000 );
+      }
