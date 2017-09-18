@@ -592,73 +592,7 @@
   color:#333333;
   text-align:center;
 }
-#u68_div {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:211px;
-  height:17px;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 0);
-  border:none;
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-  text-decoration:underline;
-  color:#0000FF;
-}
 #u68 {
-  border-width:0px;
-  position:absolute;
-  left:185px;
-  top:199px;
-  width:211px;
-  height:17px;
-  text-decoration:underline;
-  color:#0000FF;
-}
-#u69 {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:211px;
-  word-wrap:break-word;
-}
-#u70_div {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:248px;
-  height:17px;
-  background:inherit;
-  background-color:rgba(255, 255, 255, 0);
-  border:none;
-  border-radius:0px;
-  -moz-box-shadow:none;
-  -webkit-box-shadow:none;
-  box-shadow:none;
-}
-#u70 {
-  border-width:0px;
-  position:absolute;
-  left:185px;
-  top:226px;
-  width:248px;
-  height:17px;
-}
-#u71 {
-  border-width:0px;
-  position:absolute;
-  left:0px;
-  top:0px;
-  width:248px;
-  white-space:nowrap;
-}
-#u72 {
   border-width:0px;
   position:absolute;
   left:614px;
@@ -666,7 +600,7 @@
   width:17px;
   height:16px;
 }
-#u73 {
+#u69 {
   border-width:0px;
   position:absolute;
   left:16px;
@@ -675,13 +609,13 @@
   visibility:hidden;
   word-wrap:break-word;
 }
-#u72_input {
+#u68_input {
   border-width:0px;
   position:absolute;
   left:-3px;
   top:-2px;
 }
-#u74_div {
+#u70_div {
   border-width:0px;
   position:absolute;
   left:0px;
@@ -697,7 +631,7 @@
   box-shadow:none;
   color:#FF0000;
 }
-#u74 {
+#u70 {
   border-width:0px;
   position:absolute;
   left:27px;
@@ -706,11 +640,33 @@
   height:64px;
   color:#FF0000;
 }
-#u75 {
+#u71 {
   border-width:0px;
   position:absolute;
   left:0px;
   top:0px;
   width:300px;
   word-wrap:break-word;
+}
+#u72 {
+  border-width:0px;
+  position:absolute;
+  left:27px;
+  top:225px;
+  width:140px;
+  height:25px;
+}
+#u72_input {
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:140px;
+  height:25px;
+  font-family:'Arial Normal', 'Arial';
+  font-weight:400;
+  font-style:normal;
+  font-size:13px;
+  text-decoration:none;
+  color:#333333;
+  text-align:center;
 }
