@@ -21,36 +21,36 @@ module.exports =
   create: (req, res) ->
     params = req.body
 
-    lib.log params.thumbnail.length
-    lib.zip params.thumbnail, (data) ->
-      lib.log data.length, 'length'
-    # data =
-    #   "$class": "org.pccu.certnetwork.Cert",
-    #   "certId": lib.guid()
-    #   "certTitle": params.certTitle
-    #   "certStatus": "EFFECTIVE" #params.certStatus
-    #   "issueDate": params.issueDate
-    #   "certExpiredDate": params.certExpiredDate
-    #   "info": params.info
-    #   "thumbnail": lib.zip(params.thumbnail)
-    #   "receiverId": params.receiver
-    #   "issuerId": params.issuer
-    #   "receiver": params.receiver
-    #   "issuer": params.issuer
-    # lib.log data, 'data'
+    # lib.log params.thumbnail.length
+    # lib.zip params.thumbnail, (data) ->
+    #   lib.log data.length, 'length'
+    data =
+      "$class": "org.pccu.certnetwork.Cert",
+      "certId": lib.guid()
+      "certTitle": params.certTitle
+      "certStatus": "EFFECTIVE" #params.certStatus
+      "issueDate": params.issueDate
+      "certExpiredDate": params.certExpiredDate
+      "info": params.info
+      "thumbnail": params.thumbnail
+      "receiverId": params.receiver
+      "issuerId": params.issuer
+      "receiver": params.receiver
+      "issuer": params.issuer
+    lib.log data, 'data'
 
-    # options = _.clone _options
-    # options.method = "POST"
-    # options.body = data
-    # promise(options).then((result) ->
-    #   lib.log result, 'result'
-    #   res.redirect('/certs')
-    # ).catch (err) ->
-    #   lib.log err, 'err'
-    #   message = JSON.parse(err.message.replace(/\d\d\d\s-/g, ''))
-    #   lib.log message
-    #   req.session.message = message
-    #   res.redirect("/certs/new")
+    options = _.clone _options
+    options.method = "POST"
+    options.body = data
+    promise(options).then((result) ->
+      lib.log result, 'result'
+      res.redirect('/certs')
+    ).catch (err) ->
+      lib.log err, 'err'
+      message = JSON.parse(err.message.replace(/\d\d\d\s-/g, ''))
+      lib.log message
+      req.session.message = message
+      res.redirect("/certs/new")
 
   index: (req, res) ->
     options = _.clone _options
