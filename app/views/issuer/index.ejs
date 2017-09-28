@@ -9,7 +9,7 @@
     <% _.each(collection, function (item) { %>
     <tr>
       <th><a href='/issuers/<%=item.issuerId%>' class='destroy'>刪除</a></th>
-      <td><%= item.issuerId %></td>
+      <td><a href='/issuers/<%=item.issuerId%>'><%= item.issuerId %></a></td>
       <td><%= item.issuerName %></td>
     </tr>
     <% }) %>

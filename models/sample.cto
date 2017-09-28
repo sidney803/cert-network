@@ -12,8 +12,10 @@ asset Cert identified by certId {
   o String certExpiredDate
   o String info
   o String thumbnail
-  --> Receiver receiver
-  --> Issuer issuer
+  o String receiverId
+  o String issuerId
+  --> Participant receiver
+  --> Participant issuer
 }
 transaction CertTransaction {
   --> Cert cert
@@ -24,11 +26,11 @@ enum CertStatus {
   o REVOKED
   o EFFECTIVE
 }
-participant Issuer identified by issuerId { 
+participant Issuer identified by issuerId {
   o String issuerId
   o String issuerName
 }
-participant Receiver identified by receiverId {  
+participant Receiver identified by receiverId {
   o String receiverId
   o String firstName
   o String lastName

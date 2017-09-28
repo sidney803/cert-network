@@ -9,7 +9,7 @@
     <% _.each(collection, function (item) { %>
     <tr>
       <th><a href='/receivers/<%=item.receiverId%>' class='destroy'>刪除</a></th>
-      <td><%= item.receiverId %></td>
+      <td><a href='/receivers/<%= item.receiverId%>'><%= item.receiverId %></a></td>
       <td><%= item.firstName %></td>
       <td><%= item.lastName %></td>
     </tr>

@@ -20,11 +20,16 @@
       <% receiver = _.filter(receivers, function(rec) { return rec.receiverId == item.receiver.split('#')[1] })[0] %>
       <tr>
         <td><%= item.certId %></td>
-        <td><%= issuer.issuerName %></td>
+        <td><% if (issuer) { %>
+           <a href='/issuers/<%= issuer.issuerId %>'><%= issuer.issuerName %></a>
+          <% } %>
+        </td>
         <td><%= item.issueDate %></td>
         <td><%= item.certExpiredDate %></td>
         <td><%= item.certTitle %></td>
-        <td><%= receiver.lastName + receiver.firstName %></td>
+        <td><% if ( receiver ) { %>
+          <a href='/receivers/<%= receiver.receiverId %>'><%= receiver.lastName + receiver.firstName %></><% } %>
+          </td>
         <td><%= item.info %></td>
         <td><img class='colorbox thumb' src='<%= item.thumbnail %>'/></td>
         <td><%= item.certStatus %></td>
