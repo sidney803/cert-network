@@ -4,9 +4,8 @@
 <table>
 <% _.each(certs, function(cert) { %>
   <tr>
-  <td>
-  <h1><%= cert.certTitle %></h1></td>
-  <td><h2><%= cert.certId %></h2></td>
+  <td><%= cert.certTitle %></td>
+  <td><%= cert.certId %></td>
   <td><img class='colorbox thumb' src='<%= cert.thumbnail %>'/></td>
   </tr>
 <% }) %>

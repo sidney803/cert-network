@@ -20,7 +20,6 @@ module.exports =
 
   create: (req, res) ->
     params = req.body
-
     # lib.log params.thumbnail.length
     # lib.zip params.thumbnail, (data) ->
     #   lib.log data.length, 'length'

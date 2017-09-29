@@ -12,35 +12,26 @@ module.exports =
     console.log 1
     fs = require 'fs'
     targz = require 'tar.gz'
-    tempfile = "/tmp/data"
+    tempfile = "/tmp/data/1"
     tarfile = 'temp.tar.gz'
     console.log 2
 
     fs.writeFile tempfile, data, (err) ->
       console.log 3
       if err
-        console.log 4
         console.log err
         return
-      console.log 5
-
-
-
-
-      read = targz().createReadStream('/some/directory')
-      write = fs.createWriteStream('compressed.tar.gz')
-      read.pipe write
-
-
-      read = targz().createReadStream tempfile
+      console.log 'read to zip'
+      read = targz().createReadStream '/tmp/data'
       write = fs.createWriteStream tarfile
       read.pipe write
-
+      console.log 'pipe'
       fs.readFile tarfile, (err, data) ->
         if err
           console.log err
           return
-        callback data
+        console.log 'callback data'
+        callback "data"
 
     # LZUTF8 = require('lzutf8')
     # return LZUTF8.compress(data)

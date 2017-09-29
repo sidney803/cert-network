@@ -50,6 +50,7 @@
       </div>
 
       <%- body %>
+      <div id='qrcode'></div>
     </div>
     <script src="/dependencies/sails.io.js"></script>
     <script src="/dependencies/foundation/js/vendor/jquery.js"></script>
@@ -60,17 +61,7 @@
     <script src="/dependencies/foundation/js/vendor/what-input.js"></script>
     <script src="/dependencies/foundation/js/vendor/foundation.js"></script>
     <script src="/dependencies/foundation/js/app.js"></script>
+    <script src='/dependencies/qrcode/qrcode.min.js'></script>
     <script src="/js/application.js"></script>
-    <script>
-      $(document).ready(function(){
-        $.wait( function() {
-          $('.colorbox').fancybox();
-        }, 1)
-      })
-
-      $.wait = function( callback, seconds){
-         return window.setTimeout( callback, seconds * 1000 );
-      }
-      </script>
   </body>
 </html>
