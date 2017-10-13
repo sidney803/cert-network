@@ -17,6 +17,7 @@
     "lz-string": "^1.4.4",
     "lzutf8": "^0.4.6",
     "node-zip": "^1.1.1",
+    "prettyjson": "^1.2.1",
     "promise-coffee": "^1.1.3",
     "qrcode": "^0.9.0",
     "request": "^2.81.0",
