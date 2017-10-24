@@ -4,6 +4,20 @@
  * Sample business network definition.
  */
 namespace org.pccu.certnetwork
+
+asset Certfication identified by certificationId {
+  o String certificationId //
+  o String certTitle // 證書標題
+  o String issueDate // 格式:YYYY/MM/DD/HH/MM/SS, 證書發行日期
+  o String certExpiredDate // string,格式:YYYY/MM/DD/HH/MM/SS,  證書失效日期
+  o String thumbnail // 證書圖檔或PDF
+  o String receiverId // 身份證字號或護照號碼
+  o String receiverFirstName // 學員生名字
+  o String receiverLastName //: 學員生姓名
+  o String issuerName // 發證單位名稱
+  o String info // 其它證書資訊補充
+}
+
 asset Cert identified by certId {
   o String certId
   o String certTitle
@@ -17,19 +31,23 @@ asset Cert identified by certId {
   --> Participant receiver
   --> Participant issuer
 }
+
 transaction CertTransaction {
   --> Cert cert
   --> Receiver receiver
 }
+
 enum CertStatus {
   o EXPIRED
   o REVOKED
   o EFFECTIVE
 }
+
 participant Issuer identified by issuerId {
   o String issuerId
   o String issuerName
 }
+
 participant Receiver identified by receiverId {
   o String receiverId
   o String firstName

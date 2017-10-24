@@ -31,7 +31,13 @@
           <a href='/receivers/<%= receiver.receiverId %>'><%= receiver.lastName + receiver.firstName %></><% } %>
           </td>
         <td><%= item.info %></td>
-        <td><img class='colorbox thumb' src='<%= item.thumbnail %>'/></td>
+        <td>
+          <% if (item.thumbnail.indexOf('application/pdf') > 0) { %>
+            <a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= item.thumbnail %>">PDF</a>
+          <% } else { %>
+          <img class='colorbox thumb image' src='<%= item.thumbnail %>'/>
+          <% } %>
+        </td>
         <td><%= item.certStatus %></td>
         <th><a href='/certs/<%=item.certId%>' class='destroy'>刪除</a></th>
       </tr>

@@ -55,7 +55,8 @@ module.exports.http = {
     //   return middlewareFn;
     // })(),
     bodyParser: require('skipper')({
-      limit: 52428800
+      // limit: 52428800,
+      limit: "20000kb"
     })
 
   },

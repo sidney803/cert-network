@@ -8,7 +8,15 @@ $(document).ready ->
 
 
   $.wait (->
-    $('.colorbox').fancybox()
+    $('.image').fancybox()
+
+    $('.pdf').fancybox
+      openEffect: 'elastic'
+      closeEffect: 'elastic'
+      autoSize: true
+      type: 'iframe'
+      iframe: preload: false
+
     return
   ), 1
   return

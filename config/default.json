@@ -1,4 +1,19 @@
 {
 
-  "config":""
-}
+  "config":"",
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "10000kb"
+      "urlencoded": {
+        "extended": true,
+        "limit": "10000kb"
+      }
+    }
+  }
