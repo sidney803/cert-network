@@ -5,7 +5,7 @@
  */
 namespace org.pccu.certnetwork
 
-asset Certfication identified by certificationId {
+asset Certification identified by certificationId {
   o String certificationId //
   o String certTitle // 證書標題
   o String issueDate // 格式:YYYY/MM/DD/HH/MM/SS, 證書發行日期

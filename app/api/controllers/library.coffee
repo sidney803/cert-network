@@ -81,6 +81,9 @@ module.exports =
   getCerts: (callback) ->
     this.getClassList "Cert", callback
 
+  getCertifications: (callback) ->
+    this.getClassList "Certification", callback
+
   get: (className, id, callback) ->
     module = this
     options = _.clone _options
