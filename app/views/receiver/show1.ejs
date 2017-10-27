@@ -1,0 +1,11 @@
+
+<h1><a href=''><%= receiver.lastName + receiver.firstName %>的證書列表</a></h1>
+<table>
+<% _.each(certs, function(cert) { %>
+  <tr>
+  <td><%= cert.certTitle %></td>
+  <td><%= cert.certId %></td>
+  <td><img class='colorbox thumb' src='<%= cert.thumbnail %>'/></td>
+  </tr>
+<% }) %>
+</table>

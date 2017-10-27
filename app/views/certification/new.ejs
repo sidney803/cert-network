@@ -2,6 +2,8 @@
 <div class='large-4 medium-4 cell'>
   <form action='/certifications' method='post'>
     <div class='floated-label-wrapper'>
+      <label>證書序號</label>
+      <input type="text" name="certNo" value="certNo1"/>
       <label>證書標題</label>
       <input type="text" name="certTitle" value="certTitle1"/>
       </div>
@@ -12,10 +14,6 @@
           <div class='floated-label-wrapper'>
             <label>證書期限</label>
             <input type="text" name="certExpiredDate" value="certExpiredDate1"/>
-          </div>
-          <div class='floated-label-wrapper'>
-            <label>證書資訊</label>
-            <input type="text" name="info" value="info1"/>
           </div>
           <div class='floated-label-wrapper'>
             <label>證書圖檔</label>
@@ -41,7 +39,11 @@
             <input type="text" name="issuerName" value="issuerName1"/>
           </div>
           <div class='floated-label-wrapper'>
-            <label>備註</label>
+            <label>證書狀態</label>
+            <input type="text" name="certStatus" value="EFFECTIVE"/>
+          </div>
+          <div class='floated-label-wrapper'>
+            <label>證書資訊</label>
             <input type="text" name="info" value="info1"/>
           </div>
           <input type='submit' class='button' value="創建證書"/>

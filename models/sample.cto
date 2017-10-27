@@ -7,6 +7,7 @@ namespace org.pccu.certnetwork
 
 asset Certification identified by certificationId {
   o String certificationId //
+  o String certNo // 證書序號
   o String certTitle // 證書標題
   o String issueDate // 格式:YYYY/MM/DD/HH/MM/SS, 證書發行日期
   o String certExpiredDate // string,格式:YYYY/MM/DD/HH/MM/SS,  證書失效日期
@@ -15,6 +16,7 @@ asset Certification identified by certificationId {
   o String receiverFirstName // 學員生名字
   o String receiverLastName //: 學員生姓名
   o String issuerName // 發證單位名稱
+  o String certStatus // 證書狀態
   o String info // 其它證書資訊補充
 }
 

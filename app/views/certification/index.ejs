@@ -2,11 +2,13 @@
 <table class='striped'>
   <thead>
     <tr>
+      <th>證書ID</th>
       <th>證書序號</th>
       <th>發行單位</th>
       <th>發行日期</th>
       <th>證書期限</th>
       <th>證書標題</th>
+      <th>受與者ID</th>
       <th>受與者姓名</th>
       <th>證書資訊</th>
       <th>證書圖檔</th>
@@ -18,20 +20,22 @@
     <% _.each(collection, function(item) { %>
       <tr>
         <td><%= item.certificationId %></td>
+        <td><%= item.certNo %></td>
         <td><%= item.issuerName %></td>
         <td><%= item.issueDate %></td>
         <td><%= item.certExpiredDate %></td>
         <td><%= item.certTitle %></td>
+        <td><a href="/receivers/<%=item.receiverId%>"><%= item.receiverId %></a></td>
         <td><%= item.receiverLastName %><%= item.receiverFirstName %></td>
         <td><%= item.info %></td>
         <td>
           <% if (item.thumbnail.indexOf('application/pdf') > 0) { %>
-            <a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= item.thumbnail %>">PDF</a>
+            <a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= item.thumbnail %>">證書</a>
           <% } else { %>
           <img class='colorbox thumb image' src='<%= item.thumbnail %>'/>
           <% } %>
         </td>
-        <td><%= item.certStatus %>有效</td>
+        <td><%= item.certStatus %></td>
         <th><a href='/certifications/<%=item.certificationId%>' class='destroy'>刪除</a></th>
       </tr>
     <% }) %>

@@ -60,6 +60,16 @@ module.exports =
 
   show: (req, res) ->
     id = req.params.id
+    lib.getCertifications (certs) ->
+      lib.log certs, 'certs'
+      lib.log certs.length, 'certs'
+      certs = _.filter certs, (cert) ->
+        cert.receiverId == id
+      lib.log certs.length, 'certs'
+      res.view('receiver/show.ejs', { id: id, certs: certs })
+
+  show1: (req, res) ->
+    id = req.params.id
     lib.get "Receiver", id, (receiver) ->
       lib.getCerts (certs) ->
         lib.log certs, 'certs'

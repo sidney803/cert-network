@@ -24,6 +24,7 @@ module.exports =
     data =
       "$class": "org.pccu.certnetwork.Certification",
       "certificationId": lib.guid(),
+      "certNo": params.certNo,
       "certTitle": params.certTitle,
       "issueDate": params.issueDate,
       "certExpiredDate": params.certExpiredDate,
@@ -32,6 +33,7 @@ module.exports =
       "receiverFirstName": params.receiverFirstName,
       "receiverLastName": params.receiverLastName,
       "issuerName": params.issuerName,
+      "certStatus": params.certStatus,
       "info": params.info
 
     options = _.clone _options

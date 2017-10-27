@@ -10,10 +10,10 @@
     },
     "json": {
       "strict": false,
-      "limit": "10000kb"
+      "limit": "100kb"
       "urlencoded": {
         "extended": true,
-        "limit": "10000kb"
+        "limit": "100kb"
       }
     }
   }

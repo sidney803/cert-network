@@ -28,7 +28,8 @@
         <td><%= item.certExpiredDate %></td>
         <td><%= item.certTitle %></td>
         <td><% if ( receiver ) { %>
-          <a href='/receivers/<%= receiver.receiverId %>'><%= receiver.lastName + receiver.firstName %></><% } %>
+          // <a href='/receivers/<%= receiver.receiverId %>'><%= receiver.lastName + receiver.firstName %></><% } %>
+          <%= receiver.lastName + receiver.firstName %>
           </td>
         <td><%= item.info %></td>
         <td>

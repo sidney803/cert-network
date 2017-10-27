@@ -1,11 +1,18 @@
-<h1><a href=''><%= receiver.lastName + receiver.firstName %>的證書列表</a></h1>
+<h1><a href=''><%= id %>的證書列表</a></h1>
 
 <table>
 <% _.each(certs, function(cert) { %>
   <tr>
   <td><%= cert.certTitle %></td>
   <td><%= cert.certId %></td>
-  <td><img class='colorbox thumb' src='<%= cert.thumbnail %>'/></td>
+  <td>
+    <% if (cert.thumbnail.indexOf('application/pdf') > 0) { %>
+      <a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= cert.thumbnail %>">證書</a>
+    <% } else { %>
+      <img class='colorbox thumb image' src='<%= cert.thumbnail %>'/>
+    <% } %>
+  </td>
   </tr>
 <% }) %>
 </table>
+
