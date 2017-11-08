@@ -13,7 +13,7 @@ _options =
 module.exports =
   imports: (req, res) ->
     host = req.get('host')
-    url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/05"
+    url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/07"
     options = _.clone _options
     options.url = url
     lib.log options, 'options'

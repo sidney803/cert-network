@@ -26,15 +26,9 @@
         <td><%= item.certExpiredDate %></td>
         <td><%= item.certTitle %></td>
         <td><a href="/receivers/<%=item.receiverId%>"><%= item.receiverId %></a></td>
-        <td><%= item.receiverLastName %><%= item.receiverFirstName %></td>
+        <td><%= item.receiverFirstName %></td>
         <td><%= item.info %></td>
-        <td>
-          <% if (item.thumbnail.indexOf('application/pdf') > 0) { %>
-            <a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= item.thumbnail %>">證書</a>
-          <% } else { %>
-          <img class='colorbox thumb image' src='<%= item.thumbnail %>'/>
-          <% } %>
-        </td>
+        <td><a class="btn btn-info btn-sm btn-hover pdf" data-fancybox-type="iframe" href="<%= item.thumbnail %>">證書</a></td>
         <td><%= item.certStatus %></td>
         <th><a href='/certifications/<%=item.certificationId%>' class='destroy'>刪除</a></th>
       </tr>
