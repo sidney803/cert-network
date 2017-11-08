@@ -22,6 +22,9 @@ module.exports.routes = {
   'get /certifications/new': 'CertificationController.new',
   'get /certifications': 'CertificationController.index',
   'post /certifications': 'CertificationController.create',
-  'delete /certifications/:id': 'CertificationController.destroy'
+  'delete /certifications/:id': 'CertificationController.destroy',
+
+  'get /certifications/imports': 'Certification.imports'
+
 
 };

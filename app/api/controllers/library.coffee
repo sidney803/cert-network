@@ -44,7 +44,7 @@ module.exports =
 
 
   log: (message, title="no-title") ->
-    console.log '---', title, '---'
+    console.log '>>>---', title, '---'
 
     options = stringColor: 'blue'
     if message
@@ -54,7 +54,7 @@ module.exports =
       catch e
         console.log prettyjson.render(message, options)
 
-    console.log '-----------------------------------------------', title, '---\n'
+    console.log '<<<---', title, '---\n'
 
   guid: ->
     s4 = ->
