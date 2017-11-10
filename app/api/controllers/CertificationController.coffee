@@ -13,31 +13,20 @@ _options =
 module.exports =
   imports: (req, res) ->
     host = req.get('host')
-    url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/07"
     options = _.clone _options
-    options.url = url
+    options.url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/1"
     lib.log options, 'options'
     promise(options).then((result) ->
       lib.log result.Data, 'result'
       items = result.Data
+      lib.log items.length, 'items.length'
       options.method = "POST"
-      _.each items, (item) ->
-        lib.log item, 'item'
-        item["certNo"] = item.certId
-        if item.info == ""
-          item.info = "(無)"
-        options.body = item
-        options.url = 'http://' + host + '/certifications'
-        lib.log options, 'options'
-        promise(options).then((result) ->
-          lib.log result, 'result'
-        ).catch (err) ->
-          lib.log err, 'err'
       res.redirect('/certifications')
+      lib.save req, options, items, 0, ->
+        res.redirect('/certifications')
     ).catch (err) ->
       lib.log err, 'err'
       res.redirect('/certifications')
-
 
   new: (req, res) ->
     message = ""
@@ -48,9 +37,10 @@ module.exports =
 
   create: (req, res) ->
     params = req.body
+    lib.log params, 'params'
     data =
       "$class": "org.pccu.certnetwork.Certification",
-      "certificationId": lib.guid(),
+      "certificationId": params.issuerName + "-" + params.certNo,
       "certNo": params.certNo,
       "certTitle": params.certTitle,
       "issueDate": params.issueDate,

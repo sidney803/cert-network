@@ -95,3 +95,23 @@ module.exports =
     ).catch (err) ->
       module.log err, 'error'
 
+  save: (req, options, items, index, callback) ->
+    module = this
+    host = req.get('host')
+    if index < items.length
+      item = items[index]
+      item["certNo"] = item.certId
+      item.info = "(無)" if item.info == ""
+      options.body = item
+      options.url = 'http://' + host + '/certifications'
+      module.log options, 'options'
+      promise(options).then((result) ->
+        module.log result, 'result'
+        module.save req, options, items, index + 1
+      ).catch (err) ->
+        module.log err, 'err'
+        module.save req, options, items, index + 1
+    else
+      callback()
+
+
