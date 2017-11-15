@@ -2,7 +2,7 @@
 lib = require('./library')
 promise = require('request-promise')
 
-url = 'http://localhost:3000/api/org.pccu.certnetwork.Cert'
+url = 'http://localhost:3000/api/Cert'
 _options =
   headers: 'User-Agent': 'Request-Promise'
   json: true

@@ -5,7 +5,7 @@ _options =
   headers: 'User-Agent': 'Request-Promise'
   json: true
 
-api = 'http://localhost:3000/api/org.pccu.certnetwork.'
+api = 'http://localhost:3000/api/'
 
 module.exports =
   zip: (data, callback) ->
@@ -95,7 +95,7 @@ module.exports =
     ).catch (err) ->
       module.log err, 'error'
 
-  save: (req, options, items, index, callback) ->
+  import: (req, options, items, index, callback) ->
     module = this
     host = req.get('host')
     if index < items.length
@@ -107,10 +107,10 @@ module.exports =
       module.log options, 'options'
       promise(options).then((result) ->
         module.log result, 'result'
-        module.save req, options, items, index + 1
+        module.import req, options, items, index + 1
       ).catch (err) ->
         module.log err, 'err'
-        module.save req, options, items, index + 1
+        module.import req, options, items, index + 1
     else
       callback()
 

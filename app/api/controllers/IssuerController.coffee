@@ -2,7 +2,7 @@
 lib = require('./library')
 promise = require('request-promise')
 
-url = 'http://localhost:3000/api/org.pccu.certnetwork.Issuer'
+url = 'http://localhost:3000/api/Issuer'
 _options =
   headers: 'User-Agent': 'Request-Promise'
   json: true
@@ -129,7 +129,7 @@ module.exports =
     field = "receiver"
     key = "A123456789"
 
-    options.uri = "http://localhost:3000/api/org.pccu.certnetwork." + action + "?filter=%7B%22where%22%3A%20%7B%22" + field + "%22%3A%22" + key + "%22%7D%7D"
+    options.uri = "http://localhost:3000/api/" + action + "?filter=%7B%22where%22%3A%20%7B%22" + field + "%22%3A%22" + key + "%22%7D%7D"
 
     lib.log options, 'options'
     promise(options).then((result) ->

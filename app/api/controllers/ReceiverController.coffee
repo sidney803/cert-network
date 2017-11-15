@@ -2,7 +2,7 @@
 lib = require('./library')
 promise = require('request-promise')
 
-url = 'http://localhost:3000/api/org.pccu.certnetwork.Receiver'
+url = 'http://localhost:3000/api/Receiver'
 _options =
   headers: 'User-Agent': 'Request-Promise'
   json: true
@@ -82,7 +82,7 @@ module.exports =
 
   show____chaincode: (req, res) ->
     options = _.clone _options
-    # issuer_url = "http://localhost:3000/api/org.pccu.certnetwork.Issuer?filter=%7B%22where%22%3A%20%7B%22issuerId%22%3A%22450f8561-e5b9-9669-af8b-50addef29e86%22%7D%7D"
+    # issuer_url = "http://localhost:3000/api/Issuer?filter=%7B%22where%22%3A%20%7B%22issuerId%22%3A%22450f8561-e5b9-9669-af8b-50addef29e86%22%7D%7D"
     # options.uri = issuer_url
     action = "Issuer"
     field = "issuerId"
@@ -93,7 +93,7 @@ module.exports =
     # key = "resource:org.pccu.certnetwork.Receiver#A123456789"
     key = "A123456789"
 
-    options.uri = "http://localhost:3000/api/org.pccu.certnetwork." + action + "?filter=%7B%22where%22%3A%20%7B%22" + field + "%22%3A%22" + key + "%22%7D%7D"
+    options.uri = "http://localhost:3000/api/" + action + "?filter=%7B%22where%22%3A%20%7B%22" + field + "%22%3A%22" + key + "%22%7D%7D"
     lib.log options, 'options'
     promise(options).then((result) ->
       lib.log result

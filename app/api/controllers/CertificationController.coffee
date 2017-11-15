@@ -3,7 +3,7 @@
 lib = require './library'
 promise = require 'request-promise'
 
-url = 'http://localhost:3000/api/org.pccu.certnetwork.Certification'
+url = 'http://localhost:3000/api/Certification'
 
 _options =
   headers: 'User-Agent': 'Request-Promise'
@@ -14,7 +14,7 @@ module.exports =
   imports: (req, res) ->
     host = req.get('host')
     options = _.clone _options
-    options.url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/1"
+    options.url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/14"
     lib.log options, 'options'
     promise(options).then((result) ->
       lib.log result.Data, 'result'
@@ -22,7 +22,7 @@ module.exports =
       lib.log items.length, 'items.length'
       options.method = "POST"
       res.redirect('/certifications')
-      lib.save req, options, items, 0, ->
+      lib.import req, options, items, 0, ->
         res.redirect('/certifications')
     ).catch (err) ->
       lib.log err, 'err'
