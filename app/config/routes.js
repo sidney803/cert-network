@@ -2,6 +2,9 @@ module.exports.routes = {
 
   '/': { view: 'homepage' },
 
+  'get /sign_in': 'SessionController.new',
+  'post /sign_in': 'SessionController.create',
+
   'get /issuers/new': 'IssuerController.new',
   'get /issuers': 'IssuerController.index',
   'get /issuers/:id': 'IssuerController.show',

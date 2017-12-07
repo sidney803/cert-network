@@ -14,7 +14,7 @@ module.exports =
   imports: (req, res) ->
     host = req.get('host')
     options = _.clone _options
-    options.url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetDate=2017/11/14"
+    options.url = "http://140.137.200.243/bizapi_bc/api/AppCert/GetCertList?GetSDate=2017/12/1&GetEDate=2017/12/4"
     lib.log options, 'options'
     promise(options).then((result) ->
       lib.log result.Data, 'result'

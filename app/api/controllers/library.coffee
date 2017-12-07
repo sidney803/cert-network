@@ -108,9 +108,11 @@ module.exports =
       promise(options).then((result) ->
         module.log result, 'result'
         module.import req, options, items, index + 1
+        callback()
       ).catch (err) ->
         module.log err, 'err'
         module.import req, options, items, index + 1
+        callback()
     else
       callback()
 
